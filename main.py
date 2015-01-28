@@ -25,17 +25,8 @@ jinja_environment = jinja2.Environment(
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.redirect("http://packdberkeley.appspot.com", permanent=True)
-        # template_values = {}
-        # template = jinja_environment.get_template("index.html")
-        # self.response.out.write(template.render(template_values))
 
-class InfoHandler(webapp2.RequestHandler):
-    def get(self):
-        template_values = {}
-        template = jinja_environment.get_template("info.html")
-        self.response.out.write(template.render(template_values))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/info', InfoHandler),
 ], debug=True)
